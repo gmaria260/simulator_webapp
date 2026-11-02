@@ -29,7 +29,6 @@
 
             <div class="simulator-workspace">
 
-                <!-- Data input -->
             <section class="data-panel">
                 <div class="data-panel-heading">
                     <div>
@@ -109,8 +108,8 @@
                 <button type="button" class="calculate-button">
                     Calculate Regression
                 </button>
+                <p id="calculationMessage" class="feedback-message" role="alert" aria-live="polite"></p>
 
-                <-- Prediction -->
                 <div class="prediction-section">
 
                     <h2>Predict Y</h2>
@@ -140,6 +139,7 @@
                         <span>Predicted Y:</span>
                         <strong id="predictedY">—</strong>
                     </div>
+                    <p id="predictionMessage" class="feedback-message" role="status" aria-live="polite"></p>
 
                 </div>
 
@@ -192,12 +192,16 @@
                                     <line x1="80" y1="370" x2="80" y2="50" />
                                 </g>
 
+                                <g id="graphTicks" class="graph-ticks"></g>
+                                <g id="regressionPlot"></g>
+
                                 <g class="graph-labels">
-                                    <text x="420" y="425" text-anchor="middle">
+                                    <text id="xAxisLabel" x="420" y="425" text-anchor="middle">
                                         X
                                     </text>
 
                                     <text
+                                        id="yAxisLabel"
                                         x="25"
                                         y="220"
                                         text-anchor="middle"
@@ -221,22 +225,22 @@
 
                             <div class="result-card equation-card">
                                 <p class="result-label">Equation</p>
-                                <p class="result-value">—</p>
+                                <p id="equationResult" class="result-value">—</p>
                             </div>
 
                             <div class="result-card">
                                 <p class="result-label">Slope</p>
-                                <p class="result-value">—</p>
+                                <p id="slopeResult" class="result-value">—</p>
                             </div>
 
                             <div class="result-card">
                                 <p class="result-label">Y-Intercept</p>
-                                <p class="result-value">—</p>
+                                <p id="interceptResult" class="result-value">—</p>
                             </div>
 
                             <div class="result-card">
                                 <p class="result-label">R²</p>
-                                <p class="result-value">—</p>
+                                <p id="rSquaredResult" class="result-value">—</p>
                             </div>
 
                         </div>

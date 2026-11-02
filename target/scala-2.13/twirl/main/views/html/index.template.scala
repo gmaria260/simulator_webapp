@@ -29,13 +29,12 @@ Seq[Any](format.raw/*1.41*/("""
 
     """),format.raw/*5.5*/("""<div class="simulator">
 
-        <!-- Header -->
         <header class="simulator-header">
             <div class="header-content">
 
                 <div class="simulator-logo">
                     <img
-                        src=""""),_display_(/*13.31*/assetsFinder/*13.43*/.path("images/logo.png")),format.raw/*13.67*/(""""
+                        src=""""),_display_(/*12.31*/assetsFinder/*12.43*/.path("images/logo.png")),format.raw/*12.67*/(""""
                         alt="Linear Regression Simulator logo"
                     >
                 </div>
@@ -44,8 +43,6 @@ Seq[Any](format.raw/*1.41*/("""
 
             </div>
         </header>
-
-        <!-- Main content -->
         <main class="simulator-main">
 
             <section class="simulator-intro">
@@ -57,10 +54,7 @@ Seq[Any](format.raw/*1.41*/("""
 
             <div class="simulator-workspace">
 
-                <!-- Data input and prediction -->
             <section class="data-panel">
-
-                <!-- Data input heading -->
                 <div class="data-panel-heading">
                     <div>
                         <h2>Data Input</h2>
@@ -139,8 +133,8 @@ Seq[Any](format.raw/*1.41*/("""
                 <button type="button" class="calculate-button">
                     Calculate Regression
                 </button>
+                <p id="calculationMessage" class="feedback-message" role="alert" aria-live="polite"></p>
 
-                <!-- Prediction inside the same panel -->
                 <div class="prediction-section">
 
                     <h2>Predict Y</h2>
@@ -170,6 +164,7 @@ Seq[Any](format.raw/*1.41*/("""
                         <span>Predicted Y:</span>
                         <strong id="predictedY">—</strong>
                     </div>
+                    <p id="predictionMessage" class="feedback-message" role="status" aria-live="polite"></p>
 
                 </div>
 
@@ -222,12 +217,16 @@ Seq[Any](format.raw/*1.41*/("""
                                     <line x1="80" y1="370" x2="80" y2="50" />
                                 </g>
 
+                                <g id="graphTicks" class="graph-ticks"></g>
+                                <g id="regressionPlot"></g>
+
                                 <g class="graph-labels">
-                                    <text x="420" y="425" text-anchor="middle">
+                                    <text id="xAxisLabel" x="420" y="425" text-anchor="middle">
                                         X
                                     </text>
 
                                     <text
+                                        id="yAxisLabel"
                                         x="25"
                                         y="220"
                                         text-anchor="middle"
@@ -251,22 +250,22 @@ Seq[Any](format.raw/*1.41*/("""
 
                             <div class="result-card equation-card">
                                 <p class="result-label">Equation</p>
-                                <p class="result-value">—</p>
+                                <p id="equationResult" class="result-value">—</p>
                             </div>
 
                             <div class="result-card">
                                 <p class="result-label">Slope</p>
-                                <p class="result-value">—</p>
+                                <p id="slopeResult" class="result-value">—</p>
                             </div>
 
                             <div class="result-card">
                                 <p class="result-label">Y-Intercept</p>
-                                <p class="result-value">—</p>
+                                <p id="interceptResult" class="result-value">—</p>
                             </div>
 
                             <div class="result-card">
                                 <p class="result-label">R²</p>
-                                <p class="result-value">—</p>
+                                <p id="rSquaredResult" class="result-value">—</p>
                             </div>
 
                         </div>
@@ -294,9 +293,9 @@ Seq[Any](format.raw/*1.41*/("""
               /*
                   -- GENERATED --
                   SOURCE: app/views/index.scala.html
-                  HASH: e9429c0e08c77f471d2ff60e123723935e1ccf7c
-                  MATRIX: 735->1|869->40|899->45|942->80|981->82|1015->90|1283->331|1304->343|1349->367
-                  LINES: 21->1|26->1|28->3|28->3|28->3|30->5|38->13|38->13|38->13
+                  HASH: e6b18540a38b27afaf4585f38dad58385ebd9c34
+                  MATRIX: 735->1|869->40|899->45|942->80|981->82|1015->90|1258->306|1279->318|1324->342
+                  LINES: 21->1|26->1|28->3|28->3|28->3|30->5|37->12|37->12|37->12
                   -- GENERATED --
               */
           

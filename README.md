@@ -12,6 +12,10 @@ sbt run
 
 And then go to <http://localhost:9000> to see the running web application.
 
+## Linear regression simulator
+
+Enter at least two complete X / Y pairs in the data table, then select **Calculate Regression** to display the least-squares equation, slope, intercept, R², and a scatter plot with the fitted line. Empty rows are ignored; partially completed rows and datasets without varying X values are reported as errors. After fitting, enter an X value and select **Predict** to calculate its Y value.
+
 There are several demonstration files available in this template.
 
 ## Server backend

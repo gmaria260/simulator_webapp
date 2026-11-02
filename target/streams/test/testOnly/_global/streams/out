@@ -1,0 +1,16 @@
+[debug] javaOptions: Vector(--add-exports=java.base/sun.security.x509=ALL-UNNAMED)
+[debug] Forking tests - parallelism = false
+[debug] Create a single-thread test executor
+[debug] Runner for org.scalatest.tools.Framework produced 1 initial tasks for 1 tests.
+[debug]   Running TaskDef(BrowserSpec, sbt.ForkMain$SubclassFingerscan@6536e911, false, [SuiteSelector])
+[info] BrowserSpec:
+[info] Application
+[info] - should calculate and predict with linear regression in a browser
+[debug]     Produced 0 nested tasks and 1 events.
+[info] Run completed in 26 seconds, 980 milliseconds.
+[info] Total number of tests run: 1
+[info] Suites: completed 1, aborted 0
+[info] Tests: succeeded 1, failed 0, canceled 0, ignored 0, pending 0
+[info] All tests passed.
+[debug] Passed tests:
+[debug] 	BrowserSpec

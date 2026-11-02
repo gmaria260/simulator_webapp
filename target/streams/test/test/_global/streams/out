@@ -1,0 +1,35 @@
+[debug] javaOptions: Vector(--add-exports=java.base/sun.security.x509=ALL-UNNAMED)
+[debug] Forking tests - parallelism = false
+[debug] Create a single-thread test executor
+[debug] Runner for org.scalatest.tools.Framework produced 3 initial tasks for 3 tests.
+[debug]   Running TaskDef(UnitSpec, sbt.ForkMain$SubclassFingerscan@6536e911, false, [SuiteSelector])
+[info] UnitSpec:
+[info] CountController
+[info] - should return a valid result with action
+[info] AsyncController
+[info] - should return a valid result on action.async
+[debug]     Produced 0 nested tasks and 2 events.
+[debug]   Running TaskDef(FunctionalSpec, sbt.ForkMain$SubclassFingerscan@520a3426, false, [SuiteSelector])
+[info] FunctionalSpec:
+[info] Routes
+[info] - should send 404 on a bad request
+[info] - should send 200 on a good request
+[info] HomeController
+[info] - should render the index page
+[info] CountController
+[info] - should return an increasing count
+[debug]     Produced 0 nested tasks and 4 events.
+[debug]   Running TaskDef(BrowserSpec, sbt.ForkMain$SubclassFingerscan@18eed359, false, [SuiteSelector])
+[info] BrowserSpec:
+[info] Application
+[info] - should calculate and predict with linear regression in a browser
+[debug]     Produced 0 nested tasks and 1 events.
+[info] Run completed in 33 seconds, 295 milliseconds.
+[info] Total number of tests run: 7
+[info] Suites: completed 3, aborted 0
+[info] Tests: succeeded 7, failed 0, canceled 0, ignored 0, pending 0
+[info] All tests passed.
+[debug] Passed tests:
+[debug] 	BrowserSpec
+[debug] 	UnitSpec
+[debug] 	FunctionalSpec

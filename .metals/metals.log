@@ -810,3 +810,51 @@ WARNING: Unmatched cancel notification for request id 1776
 2026.11.02 17:39:13 INFO  no build target found for C:\xampp\htdocs\simulator_webapp\app\views\index.scala.html. Using presentation compiler with project's scala-library version: 3.3.8
 2026.11.02 17:39:16 INFO  no build target found for C:\xampp\htdocs\simulator_webapp\app\views\index.scala.html. Using presentation compiler with project's scala-library version: 3.3.8
 2026.11.02 17:39:16 INFO  no build target found for C:\xampp\htdocs\simulator_webapp\app\views\index.scala.html. Using presentation compiler with project's scala-library version: 3.3.8
+2026.11.03 01:42:33 INFO  Started: Metals version 1.6.9 in folders 'C:\xampp\htdocs\simulator_webapp' for client Visual Studio Code 1.144.0.
+2026.11.03 01:42:33 INFO  Memory monitor started
+2026.11.03 01:42:39 WARN  Using H2 2.5.250 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.11.03 01:42:39 INFO  no build target found for C:\xampp\htdocs\simulator_webapp\build.sbt. Using presentation compiler with project's scala-library version: 3.3.8
+2026.11.03 01:42:43 INFO  no build target found for C:\xampp\htdocs\simulator_webapp\build.sbt. Using presentation compiler with project's scala-library version: 3.3.8
+2026.11.03 01:42:48 WARN  no build target for: C:\xampp\htdocs\simulator_webapp\build.sbt
+2026.11.03 01:42:48 INFO  no build target found for C:\xampp\htdocs\simulator_webapp\build.sbt. Using presentation compiler with project's scala-library version: 3.3.8
+2026.11.03 01:42:52 INFO  time: code lens generation in 4.09s
+2026.11.03 01:42:53 INFO  no build target found for C:\xampp\htdocs\simulator_webapp\build.sbt. Using presentation compiler with project's scala-library version: 3.3.8
+2026.11.03 01:48:01 INFO  no build target found for C:\xampp\htdocs\simulator_webapp\build.sbt. Using presentation compiler with project's scala-library version: 3.3.8
+2026.11.03 01:48:01 INFO  no build target found for C:\xampp\htdocs\simulator_webapp\test\FunctionalSpec.scala. Using presentation compiler with project's scala-library version: 3.3.8
+2026.11.03 01:48:01 INFO  no build target found for C:\xampp\htdocs\simulator_webapp\test\FunctionalSpec.scala. Using presentation compiler with project's scala-library version: 3.3.8
+2026.11.03 01:48:01 WARN  no build target for: C:\xampp\htdocs\simulator_webapp\test\FunctionalSpec.scala
+2026.11.03 01:48:03 INFO  no build target found for C:\xampp\htdocs\simulator_webapp\test\FunctionalSpec.scala. Using presentation compiler with project's scala-library version: 3.3.8
+2026.11.03 01:48:03 INFO  no build target found for C:\xampp\htdocs\simulator_webapp\test\FunctionalSpec.scala. Using presentation compiler with project's scala-library version: 3.3.8
+Nov 03, 2026 1:48:03 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 9
+2026.11.03 01:48:03 INFO  no build target found for C:\xampp\htdocs\simulator_webapp\test\FunctionalSpec.scala. Using presentation compiler with project's scala-library version: 3.3.8
+2026.11.03 01:48:03 INFO  no build target found for C:\xampp\htdocs\simulator_webapp\test\FunctionalSpec.scala. Using presentation compiler with project's scala-library version: 3.3.8
+2026.11.03 01:48:09 INFO  no build target found for C:\xampp\htdocs\simulator_webapp\test\FunctionalSpec.scala. Using presentation compiler with project's scala-library version: 3.3.8
+2026.11.03 01:48:11 INFO  no build target found for C:\xampp\htdocs\simulator_webapp\test\FunctionalSpec.scala. Using presentation compiler with project's scala-library version: 3.3.8
+2026.11.03 01:54:25 INFO  no build target found for C:\xampp\htdocs\simulator_webapp\build.sbt. Using presentation compiler with project's scala-library version: 3.3.8
+2026.11.03 01:54:25 INFO  no build target found for C:\xampp\htdocs\simulator_webapp\build.sbt. Using presentation compiler with project's scala-library version: 3.3.8
+2026.11.03 01:54:25 WARN  no build target for: C:\xampp\htdocs\simulator_webapp\build.sbt
+2026.11.03 01:54:25 INFO  no build target found for C:\xampp\htdocs\simulator_webapp\build.sbt. Using presentation compiler with project's scala-library version: 3.3.8
+2026.11.03 01:54:25 INFO  no build target found for C:\xampp\htdocs\simulator_webapp\build.sbt. Using presentation compiler with project's scala-library version: 3.3.8
+2026.11.03 01:54:28 INFO  no build target found for C:\xampp\htdocs\simulator_webapp\build.sbt. Using presentation compiler with project's scala-library version: 3.3.8
+2026.11.03 01:57:40 INFO  no build target found for C:\xampp\htdocs\simulator_webapp\app\views\index.scala.html. Using presentation compiler with project's scala-library version: 3.3.8
+2026.11.03 01:57:40 INFO  no build target found for C:\xampp\htdocs\simulator_webapp\build.sbt. Using presentation compiler with project's scala-library version: 3.3.8
+2026.11.03 01:57:46 INFO  no build target found for C:\xampp\htdocs\simulator_webapp\build.sbt. Using presentation compiler with project's scala-library version: 3.3.8
+2026.11.03 01:57:50 INFO  no build target found for C:\xampp\htdocs\simulator_webapp\build.sbt. Using presentation compiler with project's scala-library version: 3.3.8
+2026.11.03 01:57:50 INFO  no build target found for C:\xampp\htdocs\simulator_webapp\build.sbt. Using presentation compiler with project's scala-library version: 3.3.8
+2026.11.03 01:57:53 INFO  no build target found for C:\xampp\htdocs\simulator_webapp\build.sbt. Using presentation compiler with project's scala-library version: 3.3.8
+2026.11.03 01:58:45 INFO  no build target found for C:\xampp\htdocs\simulator_webapp\app\views\index.scala.html. Using presentation compiler with project's scala-library version: 3.3.8
+2026.11.03 01:58:45 INFO  no build target found for C:\xampp\htdocs\simulator_webapp\app\views\index.scala.html. Using presentation compiler with project's scala-library version: 3.3.8
+2026.11.03 01:59:02 INFO  no build target found for C:\xampp\htdocs\simulator_webapp\app\views\index.scala.html. Using presentation compiler with project's scala-library version: 3.3.8
+2026.11.03 02:02:14 INFO  no build target found for C:\xampp\htdocs\simulator_webapp\test\FunctionalSpec.scala. Using presentation compiler with project's scala-library version: 3.3.8
+2026.11.03 02:02:14 WARN  no build target for: C:\xampp\htdocs\simulator_webapp\test\FunctionalSpec.scala
+2026.11.03 02:02:14 WARN  no build target for: C:\xampp\htdocs\simulator_webapp\test\BrowserSpec.scala
+2026.11.03 02:02:16 INFO  no build target found for C:\xampp\htdocs\simulator_webapp\test\BrowserSpec.scala. Using presentation compiler with project's scala-library version: 3.3.8
+2026.11.03 02:09:25 INFO  no build target found for C:\xampp\htdocs\simulator_webapp\test\BrowserSpec.scala. Using presentation compiler with project's scala-library version: 3.3.8
+2026.11.03 02:14:19 INFO  no build target found for C:\xampp\htdocs\simulator_webapp\test\FunctionalSpec.scala. Using presentation compiler with project's scala-library version: 3.3.8
+2026.11.03 02:14:19 INFO  no build target found for C:\xampp\htdocs\simulator_webapp\app\views\index.scala.html. Using presentation compiler with project's scala-library version: 3.3.8
+2026.11.03 02:14:20 INFO  no build target found for C:\xampp\htdocs\simulator_webapp\test\BrowserSpec.scala. Using presentation compiler with project's scala-library version: 3.3.8
+2026.11.03 02:25:03 INFO  Shutting down server
+2026.11.03 02:25:03 INFO  Memory monitor stopped
+2026.11.03 02:25:03 INFO  shutting down Metals
+2026.11.03 02:25:03 INFO  Exiting server

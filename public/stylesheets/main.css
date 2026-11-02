@@ -425,6 +425,30 @@ input {
     font-size: 16px;
 }
 
+.graph-ticks text {
+    fill: #718096;
+    font-family: "Nunito", sans-serif;
+    font-size: 11px;
+}
+
+.regression-line {
+    stroke: #f27b52;
+    stroke-width: 3;
+}
+
+.data-point {
+    fill: #7fb9e6;
+    stroke: #ffffff;
+    stroke-width: 2;
+}
+
+.feedback-message {
+    min-height: 1.2em;
+    margin: 8px 0 0;
+    color: #b42318;
+    font-size: 13px;
+}
+
 .results-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
