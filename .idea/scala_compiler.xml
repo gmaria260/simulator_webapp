@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ScalaCompilerConfiguration">
+    <option name="separateProdTestSources" value="true" />
+    <profile name="sbt 1" modules="play-scala-starter-example,simulator_webapp_102,simulator_webapp_102.main,simulator_webapp_102.test" />
+    <profile name="sbt 2" modules="play-scala-starter-example.main,play-scala-starter-example.test">
+      <option name="deprecationWarnings" value="true" />
+      <option name="uncheckedWarnings" value="true" />
+      <option name="featureWarnings" value="true" />
+      <parameters>
+        <parameter value="-encoding" />
+        <parameter value="utf8" />
+        <parameter value="-Werror" />
+      </parameters>
+    </profile>
+  </component>
+</project>

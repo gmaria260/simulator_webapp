@@ -1,0 +1,4 @@
+[debug] Copy resource mappings: 
+[debug] 	(C:\Users\Angel\Downloads\simulator_webapp\conf\application.conf,C:\Users\Angel\Downloads\simulator_webapp\target\scala-2.13\classes\application.conf)
+[debug] 	(C:\Users\Angel\Downloads\simulator_webapp\conf\logback.xml,C:\Users\Angel\Downloads\simulator_webapp\target\scala-2.13\classes\logback.xml)
+[debug] 	(C:\Users\Angel\Downloads\simulator_webapp\conf\routes,C:\Users\Angel\Downloads\simulator_webapp\target\scala-2.13\classes\routes)

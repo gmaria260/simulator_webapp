@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="sbt: com.h2database:h2:2.5.252:jar" type="java-imported" external-system-id="SBT">
+    <properties groupId="com.h2database" artifactId="h2" version="2.5.252" baseVersion="2.5.252" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/AppData/Local/Coursier/cache/v1/https/repo1.maven.org/maven2/com/h2database/h2/2.5.252/h2-2.5.252.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/AppData/Local/Coursier/cache/v1/https/repo1.maven.org/maven2/com/h2database/h2/2.5.252/h2-2.5.252-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
