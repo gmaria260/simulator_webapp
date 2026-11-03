@@ -186,6 +186,31 @@ input {
     font-size: 13px;
 }
 
+.table-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.table-action-button {
+    padding: 7px 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    background: #ffffff;
+    color: var(--text-main);
+    font-size: 12px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.table-action-button:hover {
+    background: #f1f5f9;
+}
+
+.table-action-button:focus-visible {
+    outline: 2px solid var(--sky);
+    outline-offset: 2px;
+}
+
 .editable-table-wrapper {
     width: 100%;
     max-height: 390px;
@@ -537,5 +562,15 @@ input {
 
     .prediction-input {
         flex-wrap: wrap;
+    }
+
+    .table-toolbar {
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .table-actions {
+        flex-wrap: wrap;
+        justify-content: flex-end;
     }
 }

@@ -14,7 +14,7 @@ And then go to <http://localhost:9000> to see the running web application.
 
 ## Linear regression simulator
 
-Enter at least two complete X / Y pairs in the data table, then select **Calculate Regression** to display the least-squares equation, slope, intercept, R², and a scatter plot with the fitted line. Empty rows are ignored; partially completed rows and datasets without varying X values are reported as errors. After fitting, enter an X value and select **Predict** to calculate its Y value.
+Enter at least two complete X / Y pairs in the data table, use **Add row** (or press Enter in the last cell) to add more rows, then select **Calculate Regression** to display the least-squares equation, slope, intercept, R², and a scatter plot with the fitted line. Use **Import CSV** to load a `.csv` file; the first two columns must contain X and Y values, and an optional header row is recognized. Importing replaces the current table only after the file has been read and validated. Empty rows are ignored; partially completed rows and datasets without varying X values are reported as errors. After fitting, enter an X value and select **Predict** to calculate its Y value.
 
 There are several demonstration files available in this template.
 

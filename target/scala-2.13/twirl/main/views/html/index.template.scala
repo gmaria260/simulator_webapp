@@ -68,8 +68,21 @@ Seq[Any](format.raw/*1.41*/("""
                 </div>
 
                 <div class="table-toolbar">
-                    <span>Dataset</span>
-                    <span id="rowCount">0 rows</span>
+                    <span>Dataset <span id="rowCount">1 row</span></span>
+                    <div class="table-actions">
+                        <input
+                            id="csvFileInput"
+                            type="file"
+                            accept=".csv,text/csv"
+                            hidden
+                        >
+                        <button type="button" id="importCsvButton" class="table-action-button">
+                            Import CSV
+                        </button>
+                        <button type="button" id="addRowButton" class="table-action-button">
+                            Add row
+                        </button>
+                    </div>
                 </div>
 
                 <div class="editable-table-wrapper">
@@ -127,8 +140,9 @@ Seq[Any](format.raw/*1.41*/("""
                 </div>
 
                 <p class="table-hint">
-                    Press Enter in the last cell to add another row.
+                    Add rows with the button or press Enter in the last cell. CSV files should have X and Y in the first two columns; a header row is optional.
                 </p>
+                <p id="importMessage" class="feedback-message" role="status" aria-live="polite"></p>
 
                 <button type="button" class="calculate-button">
                     Calculate Regression
@@ -293,7 +307,7 @@ Seq[Any](format.raw/*1.41*/("""
               /*
                   -- GENERATED --
                   SOURCE: app/views/index.scala.html
-                  HASH: e6b18540a38b27afaf4585f38dad58385ebd9c34
+                  HASH: d1d0cfeaf514d335f50945e4d3ab0a44f4d7fbe6
                   MATRIX: 735->1|869->40|899->45|942->80|981->82|1015->90|1258->306|1279->318|1324->342
                   LINES: 21->1|26->1|28->3|28->3|28->3|30->5|37->12|37->12|37->12
                   -- GENERATED --

@@ -1,6 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
     const tableBody = document.getElementById("dataTableBody");
     const rowCount = document.getElementById("rowCount");
+    const addRowButton = document.getElementById("addRowButton");
+    const importCsvButton = document.getElementById("importCsvButton");
+    const csvFileInput = document.getElementById("csvFileInput");
+    const importMessage = document.getElementById("importMessage");
     const calculateButton = document.querySelector(".calculate-button");
     const predictionButton = document.getElementById("predictButton");
     const predictionInput = document.getElementById("predictionX");
@@ -12,7 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const graphTicks = document.getElementById("graphTicks");
 
     if (
-        !tableBody || !rowCount || !calculateButton || !predictionButton ||
+        !tableBody || !rowCount || !addRowButton || !importCsvButton ||
+        !csvFileInput || !importMessage || !calculateButton || !predictionButton ||
         !predictionInput || !predictedY || !calculationMessage ||
         !predictionMessage || !graph || !plot || !graphTicks
     ) return;
@@ -22,19 +27,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function updateTable() {
         const rows = tableBody.querySelectorAll("tr");
+        const names = Array.from(document.querySelectorAll(".column-name"))
+            .map((input, index) => input.value.trim() || (index === 0 ? "X" : "Y"));
 
         rows.forEach((row, index) => {
             const rowNumber = row.querySelector(".row-number");
             if (rowNumber) {
                 rowNumber.textContent = index + 1;
             }
+            row.querySelectorAll(".data-cell").forEach((input, columnIndex) => {
+                input.setAttribute(
+                    "aria-label",
+                    `Row ${index + 1} ${names[columnIndex] || `column ${columnIndex + 1}`} value`
+                );
+            });
         });
 
         rowCount.textContent =
             `${rows.length} ${rows.length === 1 ? "row" : "rows"}`;
     }
 
-    function addRow() {
+    function addRow(values, focus, refresh) {
+        values = values || [];
+        focus = focus !== false;
+        refresh = refresh !== false;
         const newRow = document.createElement("tr");
 
         newRow.innerHTML = `
@@ -43,12 +59,21 @@ document.addEventListener("DOMContentLoaded", () => {
             <td><input type="number" class="data-cell" step="any" aria-label="Y value"></td>
         `;
 
+        newRow.querySelectorAll(".data-cell").forEach((input, index) => {
+            if (values[index] !== undefined) input.value = values[index];
+        });
         tableBody.appendChild(newRow);
-        updateTable();
+        if (refresh) updateTable();
 
         const firstInput = newRow.querySelector(".data-cell");
-        if (firstInput) firstInput.focus();
+        if (focus && firstInput) firstInput.focus();
     }
+
+    addRowButton.addEventListener("click", () => addRow());
+
+    document.querySelectorAll(".column-name").forEach(input => {
+        input.addEventListener("input", updateTable);
+    });
 
     tableBody.addEventListener("keydown", (event) => {
         if (event.key !== "Enter") return;
@@ -68,6 +93,153 @@ document.addEventListener("DOMContentLoaded", () => {
             if (input === lastCell) {
                 addRow();
             }
+        }
+    });
+
+    function parseCsv(text) {
+        const records = [];
+        let record = [];
+        let field = "";
+        let insideQuotes = false;
+        let afterQuote = false;
+
+        for (let index = 0; index < text.length; index += 1) {
+            const character = text[index];
+
+            if (insideQuotes) {
+                if (character === '"') {
+                    if (text[index + 1] === '"') {
+                        field += '"';
+                        index += 1;
+                    } else {
+                        insideQuotes = false;
+                        afterQuote = true;
+                    }
+                } else {
+                    field += character;
+                }
+                continue;
+            }
+
+            if (afterQuote && character !== "," && character !== "\r" &&
+                character !== "\n" && character !== " " && character !== "\t") {
+                throw new Error("The CSV contains unexpected text after a quoted value.");
+            }
+            if (afterQuote && (character === " " || character === "\t")) continue;
+            if (character === '"') {
+                if (field !== "") {
+                    throw new Error("The CSV contains a quote inside an unquoted value.");
+                }
+                insideQuotes = true;
+                afterQuote = false;
+            } else if (character === ",") {
+                record.push(field);
+                field = "";
+                afterQuote = false;
+            } else if (character === "\r" || character === "\n") {
+                if (character === "\r" && text[index + 1] === "\n") index += 1;
+                record.push(field);
+                records.push(record);
+                record = [];
+                field = "";
+                afterQuote = false;
+            } else {
+                field += character;
+            }
+        }
+
+        if (insideQuotes) throw new Error("The CSV has an unclosed quoted value.");
+        if (field !== "" || record.length > 0) {
+            record.push(field);
+            records.push(record);
+        }
+
+        return records
+            .map(cells => cells.map(cell => cell.trim()))
+            .filter(cells => cells.some(cell => cell !== ""));
+    }
+
+    function isFiniteNumber(value) {
+        return value !== "" && Number.isFinite(Number(value));
+    }
+
+    function importCsv(text) {
+        const records = parseCsv(text.replace(/^\uFEFF/, ""));
+        if (records.length === 0) {
+            throw new Error("The CSV file is empty.");
+        }
+
+        const hasHeader = records.length > 1 &&
+            !isFiniteNumber(records[0][0] || "") &&
+            !isFiniteNumber(records[0][1] || "") &&
+            isFiniteNumber(records[1][0] || "") &&
+            isFiniteNumber(records[1][1] || "");
+        const dataRecords = hasHeader ? records.slice(1) : records;
+        const observations = dataRecords.map((cells, index) => {
+            if (cells.length < 2 || cells[0] === "" || cells[1] === "") {
+                throw new Error(`CSV row ${index + (hasHeader ? 2 : 1)} needs both an X and a Y value.`);
+            }
+            if (!isFiniteNumber(cells[0]) || !isFiniteNumber(cells[1])) {
+                throw new Error(`CSV row ${index + (hasHeader ? 2 : 1)} must contain finite numbers in its first two columns.`);
+            }
+            return [cells[0], cells[1]];
+        });
+
+        if (observations.length === 0) {
+            throw new Error("The CSV file must contain at least one data row.");
+        }
+
+        return {
+            observations,
+            headers: hasHeader ? records[0].slice(0, 2) : null
+        };
+    }
+
+    importCsvButton.addEventListener("click", () => csvFileInput.click());
+    csvFileInput.addEventListener("change", () => {
+        const file = csvFileInput.files && csvFileInput.files[0];
+        importMessage.textContent = "";
+        if (!file) return;
+
+        try {
+            if (!file.name.toLowerCase().endsWith(".csv")) {
+                throw new Error("Choose a CSV file with a .csv extension.");
+            }
+            const reader = new FileReader();
+            reader.onload = () => {
+                try {
+                    const imported = importCsv(String(reader.result || ""));
+                    while (tableBody.firstChild) {
+                        tableBody.removeChild(tableBody.firstChild);
+                    }
+                    document.querySelectorAll(".column-name").forEach((input, index) => {
+                        input.value = imported.headers
+                            ? imported.headers[index] || (index === 0 ? "X" : "Y")
+                            : index === 0 ? "X" : "Y";
+                    });
+                    imported.observations.forEach(values => addRow(values, false, false));
+                    clearResults();
+                    calculationMessage.textContent = "";
+                    updateTable();
+                    importMessage.textContent =
+                        `Imported ${imported.observations.length} ${imported.observations.length === 1 ? "row" : "rows"} from ${file.name}.`;
+                } catch (error) {
+                    importMessage.textContent = error instanceof Error
+                        ? error.message
+                        : "The CSV file could not be read.";
+                }
+                csvFileInput.value = "";
+            };
+            reader.onerror = () => {
+                importMessage.textContent = "The CSV file could not be read.";
+                csvFileInput.value = "";
+            };
+            reader.readAsText(file);
+        } catch (error) {
+            importMessage.textContent = error instanceof Error
+                ? error.message
+                : "The CSV file could not be read.";
+            csvFileInput.value = "";
         }
     });
 

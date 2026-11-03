@@ -21,6 +21,8 @@ class BrowserSpec extends PlaySpec
       pageSource must include ("Linear Regression Simulator")
       pageSource must include ("Calculate Regression")
       pageSource must include ("Predict")
+      pageSource must include ("Import CSV")
+      pageSource must include ("Add row")
 
       var cells = webDriver.findElements(By.cssSelector("#dataTableBody .data-cell"))
       cells.get(0).sendKeys("1")
@@ -38,6 +40,9 @@ class BrowserSpec extends PlaySpec
       webDriver.findElement(By.id("predictionX")).sendKeys("3")
       webDriver.findElement(By.id("predictButton")).click()
       webDriver.findElement(By.id("predictedY")).getText mustBe "7"
+
+      webDriver.findElement(By.id("addRowButton")).click()
+      webDriver.findElement(By.id("rowCount")).getText mustBe "3 rows"
     }
   }
 }

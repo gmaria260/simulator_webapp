@@ -43,8 +43,21 @@
                 </div>
 
                 <div class="table-toolbar">
-                    <span>Dataset</span>
-                    <span id="rowCount">0 rows</span>
+                    <span>Dataset <span id="rowCount">1 row</span></span>
+                    <div class="table-actions">
+                        <input
+                            id="csvFileInput"
+                            type="file"
+                            accept=".csv,text/csv"
+                            hidden
+                        >
+                        <button type="button" id="importCsvButton" class="table-action-button">
+                            Import CSV
+                        </button>
+                        <button type="button" id="addRowButton" class="table-action-button">
+                            Add row
+                        </button>
+                    </div>
                 </div>
 
                 <div class="editable-table-wrapper">
@@ -102,8 +115,9 @@
                 </div>
 
                 <p class="table-hint">
-                    Press Enter in the last cell to add another row.
+                    Add rows with the button or press Enter in the last cell. CSV files should have X and Y in the first two columns; a header row is optional.
                 </p>
+                <p id="importMessage" class="feedback-message" role="status" aria-live="polite"></p>
 
                 <button type="button" class="calculate-button">
                     Calculate Regression
